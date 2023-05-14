@@ -9,9 +9,22 @@ module.exports = {
       //normally when you dont use an argument, you name it with underscore.
       return productsModel.getProductsByPrice(args.min, args.max);
     },
-    productByID: (_,args)=>{
-        return productsModel.getProductById(args.id)
-    }
+    productByID: (_, args) => {
+      return productsModel.getProductById(args.id);
+    },
+  },
+  Mutation: {
+    //mutations are top level operations so they go at the same level than Query
+    addNewProduct: (_, args) => {
+      return productsModel.addNewProduct(args.id, args.description, args.price);
+    },
+    addNewProductReview: (_, args) => {
+      return productsModel.addNewProductReview(
+        args.id,
+        args.rating,
+        args.comment
+      );
+    },
   },
 };
 

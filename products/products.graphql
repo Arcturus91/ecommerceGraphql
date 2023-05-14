@@ -3,6 +3,13 @@ type Query {
   productsByPrice(min: Float!, max: Float!): [Product]
   productByID(id: ID!): Product
 }
+"""
+here you have another root type:
+"""
+type Mutation {
+  addNewProduct(id: ID!, description: String!, price: Float!): Product
+  addNewProductReview(id: ID!, rating: Int!, comment: String): [Review]
+}
 
 type Product {
   id: ID!
